@@ -20,7 +20,7 @@ A quantidade de alunos que será cadastrada em um dia é desconhecida.
 
 ### Sugestões da equipe de desenvolvimento ###
 
-Adotaremos para esse programa a seguinte estrutura, que representará cada aluno: char *aluno[2]. Isto é, um vetor de ponteiros que conterá 2 ponteiros de caracteres. Cada ponteiro será uma string e representará um campo de informação dos alunos. Exemplo:
+Adotaremos para esse programa a seguinte estrutura, que representará cada aluno: char *aluno[2]. Isto é, um vetor de ponteiros que conterá 2 ponteiros de caracteres. É necessário que cada Cada ponteiro será uma string e representará um campo de informação dos alunos. Exemplo:
 
 - *aluno[2]
     - char *nome
