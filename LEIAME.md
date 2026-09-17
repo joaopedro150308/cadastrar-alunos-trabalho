@@ -17,3 +17,25 @@ Ao cadastrar, é necessário obter as seguintes informações de cada aluno: nom
 Além disso, o sistema deve ser capaz de separar os alunos em turmas, representadas por uma letra e determinadas pela idade de cada. Para crianças maiores que 2 anos e menores que 6 anos, atribui-se a turma A; para maiores que 5 anos e menores que 16, a turma B; e, para maiores de 15 anos e menores que 19, a turma C. A turma é uma outra informação que deve contar no cadastro de cada aluno.
 
 A quantidade de alunos que será cadastrada em um dia é desconhecida.
+
+### Sugestões da equipe de desenvolvimento ###
+
+Adotaremos para esse programa a seguinte estrutura, que representará cada aluno: char *aluno[2]. Isto é, um vetor de ponteiros que conterá 2 ponteiros de caracteres. Cada ponteiro será uma string e representará um campo de informação dos alunos. Exemplo:
+
+- *aluno[2]
+    - char *nome
+    - char *infos
+
+A string infos é uma string especial e servirá para armazenar, em um só lugar, todas as demais informações dos alunos. O campo infos de cada aluno deve seguir o seguinte padrão ao ser registrado:
+
+    "matricula idade turma"
+
+Cada aluno, por sua vez, será armazenado em um vetor. Ou seja, um vetor de vetores de ponteiros. Como a quantidade de alunos não é conhecida, essa estrutura deve ser dinâmica. Representação do vetor de alunos:
+
+- alunos
+    - *aluno1[2]
+    - *aluno2[2]
+            .
+            .
+            .
+    - *alunoN[2]
