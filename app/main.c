@@ -17,6 +17,10 @@ void flush_in()
     } while(ch != EOF && ch != '\n');
 }
 
+void limpar()
+{
+    printf("\033c");
+}
 
 int main()
 {
@@ -57,80 +61,41 @@ int main()
     }
     // Fim alocação
     
-    // Conta a quantidade de alunos. Será usado como index.
-    int cont_al = 0;
-    char buffer[NOME_TAMANHO];
-
-    // Pequena leitura dos alunos
+    // Menu de seleção de funções
+    int opcao = -1;
     do
     {
-        printf("Digite o nome do aluno %d: ", cont_al);
-        fgets(buffer, NOME_TAMANHO, stdin);
-        buffer[strcspn(buffer, "\n")] = '\0'; 
-
-        if(strcmp(buffer, "sair") == 0)
-        {
-            break;
-        }
-        strcpy(alunos[cont_al][0], buffer);
-
-        printf("Digite as informações do aluno %d: ", cont_al);
-        fgets(alunos[cont_al][1], INFOS_TAMANHO, stdin);
-        alunos[cont_al][1][strcspn(alunos[cont_al][1], "\n")] = '\0';
-
-        cont_al++;
-
-        // Algoritmo de realocação para expandir lista de alunos
-        if(cont_al == tamanho)
-        {
-            char ***nova_lista = NULL;
-            tamanho_antigo = tamanho;
-            tamanho += 5; // Aumenta em cinco a quantidade de alunos
-
-            // Tentando Realocar e expandir alunos
-            nova_lista = realloc(alunos, sizeof(char**) * tamanho);
-            if(nova_lista == NULL)
-            {
-                return 1;
-            }
-
-            // Alocando para cada novo aluno
-            for(int i = tamanho_antigo; i < tamanho; i++)
-            {
-                nova_lista[i] = malloc(sizeof(char*) * 2); // Aloca espaço para o ponteiro matriz do aluno
-                nova_lista[i][0] = malloc(NOME_TAMANHO); // Alocando espaço para o nome
-                nova_lista[i][1] = malloc(INFOS_TAMANHO); // Alocando espaço para as infos
-
-                // Algorítimo de liberação de memória, caso haja erro de alocação
-                if(nova_lista[i] == NULL || nova_lista[i][0] == NULL || nova_lista[i][1] == NULL)
-                {
-                    for(int j = 0; j <= i; j++)
-                    {
-                        free(nova_lista[j][0]);
-                        free(nova_lista[j][1]);
-                        free(nova_lista[j]);
-                    }
-                    free(nova_lista);
-
-                    printf("Erro ao alocar memória.\n");
-                    return 1;
-                }
-            }
-
-            alunos = nova_lista;
-        }
-        // Fim Realocação
-
-    } while(1);
+        opcao = -1;
+        limpar();
+        printf("1 - Cadastrar alunos\n2 - remover alunos\n3 - Mostrar alunos\n4 - Sair\n");
+        printf("Sua opção: ");
+        scanf("%d", &opcao);
+        flush_in();
     
-    for(int i = 0; i < cont_al; i++)
-    {
-        printf("Nome: %s\tInfos: %s\n", alunos[i][0], alunos[i][1]);
-    }
-
-
-
+        switch(opcao)
+        {
+            case 1: // Cadastrar
+                break;
     
+            case 2: // Remover
+                break;
+    
+            case 3: // Mostrar
+                break;
+    
+            case 4: // Sair
+                break;
+            
+            default: // Opção inválida
+                printf("\nOpção inválida. Digite um número entre 1 e 4.\n");
+                printf("Pressione ENTER para tentar novamente.");
+                getchar();
+        }
+
+    } while(opcao != 4);
+    // Fim menu
+
+
 
     // Alogrítimo de liberação de memória dos alunos
     for(int i = 0; i < QUANT_INIT_ALUNOS; i++)

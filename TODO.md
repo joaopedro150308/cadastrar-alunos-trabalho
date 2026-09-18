@@ -12,13 +12,13 @@ onde o usuário poderá escolher entre as opções: cadastrar alunos, mostrar al
 - Criar a estrutura de dados para os alunos (feito)
 - Criar o algorítimo de alocação de memória inicial para as estruturas (feito)
 - Criar o algorítimo de liberação de memória para as estruturas (feito)
-- Criar algorítimo de realocação de memória para as estruturas
+- Criar algorítimo de realocação de memória para as estruturas (feito)
 
-- Criar o algorítimo de preenchimento das estruturas (alunos)
-- Ler nome, criar uma matrícula válida, ler idade, definir turma.
+- Criar o algorítimo de preenchimento das estruturas "alunos"
+- Ler nome, ler uma matrícula válida, ler idade, definir turma.
 - Armazenar aluno no vetor de alunos.
 
-Crie um algorítimo que leia, separadamete, cada informação dos alunos. Após ler, tarnsforme as informações necessárias na string especial infos e armazenea, juntamente com o nome na estrutura. Para utilizar a estrutura, basta ter a seguinte noção:
+Crie um algorítimo que leia, separadamete, cada informação dos alunos. Após ler, tarnsforme as informações necessárias na string especial infos e armazene-a, juntamente com o nome, na estrutura. Para utilizar a estrutura, basta ter a seguinte noção:
 
 - alunos -> lista de alunos.
 - alunos[i] -> acessa um aluno da lista. Cada aluno tem dois campos de informação: nome e infos. Portanto:
