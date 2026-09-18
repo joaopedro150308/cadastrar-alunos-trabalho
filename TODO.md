@@ -1,6 +1,6 @@
 # Main
 
-- O sistema funcionará em um loop, para que o usuário escolha as opções.
+- O sistema funcionará em um loop, para que o usuário escolha as opções. (feito)
 
 
 #  Interface
@@ -13,6 +13,7 @@ onde o usuário poderá escolher entre as opções: cadastrar alunos, mostrar al
 - Criar o algorítimo de alocação de memória inicial para as estruturas (feito)
 - Criar o algorítimo de liberação de memória para as estruturas (feito)
 - Criar algorítimo de realocação de memória para as estruturas (feito)
+- DAR MANUTENÇÃO NA FUNÇÃO DE ALOCAÇÃO e REALOCAÇÃO
 
 - Criar o algorítimo de preenchimento das estruturas "alunos"
 - Ler nome, ler uma matrícula válida, ler idade, definir turma.
@@ -28,12 +29,15 @@ Crie um algorítimo que leia, separadamete, cada informação dos alunos. Após 
 
 # Mostrar alunos 
 
-- Exibe os alunos cadastrados no vetor até o momento. Isto é, todas as suas informações
+- Exibe os alunos cadastrados no vetor até o momento. Isto é, todas as suas informações (feito)
 
 
 # REMOVER
 
-- Removerá alunos da matriz de alunos. Para esse procedimento, é necessário que ao menos um aluno tenha sido cadastrado
+- Removerá alunos da matriz de alunos. Para esse procedimento, é necessário que ao menos um aluno tenha sido cadastrado (feito)
+
+- É NECESSÁRIO FAZER MANUTENÇÃO.
+    - Em algum momento, ao mistruar as funções adicionar e remover, o programa começa a substituir alunos da lista.
     
 
     
