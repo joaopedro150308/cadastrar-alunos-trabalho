@@ -18,9 +18,17 @@ onde o usuário poderá escolher entre as opções: cadastrar alunos, mostrar al
 - Ler nome, criar uma matrícula válida, ler idade, definir turma.
 - Armazenar aluno no vetor de alunos.
 
+Crie um algorítimo que leia, separadamete, cada informação dos alunos. Após ler, tarnsforme as informações necessárias na string especial infos e armazenea, juntamente com o nome na estrutura. Para utilizar a estrutura, basta ter a seguinte noção:
+
+- alunos -> lista de alunos.
+- alunos[i] -> acessa um aluno da lista. Cada aluno tem dois campos de informação: nome e infos. Portanto:
+
+- alunos[i][0] -> Acessa nome do aluno i da lista.
+- alunos[i][1] -> Acessa infos do aluno i da lista.
+
 # Mostrar alunos 
 
-- Exibe os alunos cadastrados no vetor até o momento.
+- Exibe os alunos cadastrados no vetor até o momento. Isto é, todas as suas informações
 
 
 # REMOVER
