@@ -134,15 +134,16 @@ int main()
                         getchar();
                         break;
                     }
-                    
+
                     int id = 0;
                     // Algoritmo de remoção de alunos
                     id = quant_alunos + 1; // Um ID sempre inválido, para resetar o loop caso não seja lido
-                        // Algoritmo de exibição dos alunos
-                    printf("%-4s | %-50s | %s\n\n", "ID", "NOME", "INFOS");
+                    
+                    // Algoritmo de exibição dos alunos
+                    printf("%-4s | %-20s | %s\n\n", "ID", "INFOS", "NOME");
                     for(int i = 0; i < quant_alunos; i++)
                     {
-                        printf("%-4d | %-50s | %s\n", i, alunos[i][0], alunos[i][1]);
+                        printf("%-4d | %-20s | %s\n", i, alunos[i][1], alunos[i][0]);
                     }
                     printf("\n");
 
@@ -165,22 +166,24 @@ int main()
                         continue;
                     }
 
-                        // Removendo da lista
+                    // Removendo da lista
                     char **temp = alunos[id];
 
                     for(int i = id; i < quant_alunos - 1; i++)
                     {
                         alunos[i] = alunos[i+1]; // Substitui o aluno no id dado e desloca os demais para a esquerda
                     }
+
+                    printf("\nAluno removido: %s\n", temp[0]);
+                    printf("Pressione ENTER para continuar.");
+                    getchar();
+
+                    // Libera o aluno que removido
                     free(temp[0]);
                     free(temp[1]);
                     free(temp);
-                    tamanho--;
 
                     quant_alunos--;
-                    printf("\nAluno removido.\n");
-                    printf("Pressione ENTER para continuar.");
-                    getchar();
                     // Fim remoção
 
                 } while(1);
@@ -199,10 +202,10 @@ int main()
                 }
 
                 // Algoritmo de exibição dos alunos
-                printf("%-4s | %-50s | %s\n\n", "ID", "NOME", "INFOS");
+                printf("%-4s | %-20s | %s\n\n", "ID", "INFOS", "NOME");
                 for(int i = 0; i < quant_alunos; i++)
                 {
-                    printf("%-4d | %-50s | %s\n", i, alunos[i][0], alunos[i][1]);
+                    printf("%-4d | %-20s | %s\n", i, alunos[i][1], alunos[i][0]);
                 }
                 printf("\nPressione ENTER para voltar ao menu.\n");
                 getchar();
