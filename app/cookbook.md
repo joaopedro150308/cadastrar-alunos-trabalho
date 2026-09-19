@@ -164,8 +164,3 @@ do
     // Fim Realocação
 
 } while(1);
-
-for(int i = 0; i < cont_al; i++)
-{
-    printf("Nome: %s\tInfos: %s\n", alunos[i][0], alunos[i][1]);
-}
