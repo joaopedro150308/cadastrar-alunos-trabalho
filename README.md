@@ -1,41 +1,58 @@
-### CONTEXTUALIZAÇÃO DO PROBLEMA ###
+# Cadastrar Aluno
 
-A escola Alecrim Douorado é uma instituição sem fins lucrativos que destina seus esforços a fornecer educação básica a crianças, adolescentes e jovens adultos em situações de necessidades.
+É um programa semi CRUD, que permite a realização de cadastro de alunos, assim como remover estes e mostrá-los.
 
-Essa instituição, porém, não é capaz de atender todo o público de sua comunidade. Nesse sentido, tornou-se necessário uma forma de cadastrar os alunos para ter um melhor controle da situação.
+O programa não conta com persistência de dados. É um software de cadastro meramente ilustrativo onde, ao final do programa, você tem uma estrutura "alunos" preenchida mas que não é salva.
 
-Sendo assim, a escola contará com a sua ajuda para desenvolver esse sitema de cadastro. Um analista de sistemas da sua equipe entrou em contato com a instituição, afim de compreender o seu problema e elicitar alguns requisitos. O artefato que contém a descrição do sistema está logo adiante. Leia-o e desenvolva o software.
+O programa possui uma interface de tela de comando, com um menu de seleção para as funções.
 
-### Descrição do software ###
+## Sobre o projeto
 
-O sistema deve contar com uma interface de tela de comando.
+Para o desenvolvimento desse programa, havia a seguinte condição inicial: usar ao menos cinco funções presentes na biblioteca <string.h>.
 
-O sistema deve ser capaz de cadastrar alunos, mostrar alunos cadastrados até o momento e de remover alunos cadastrados enquanto o usuário desejar. O programa deverá encerrar apenas quando o usuário escolher a opção "sair".
+O projeto utilizá funções dessa biblioteca para tentar solucionar o seguinte problema: uma escola precisa fazer um cadastro de um número desconhecido de alunos. Cada aluno deve ter um conjunto de informações: nome, matrícula, idade e turma. Alunos diferentes podem ter o mesmo nome, mas nunca a mesma matrícula.
 
-Ao cadastrar, é necessário obter as seguintes informações de cada aluno: nome completo, número de matrícula e idade. Alunos diferentes podem ter nomes e idades iguais, mas nunca matrícula. Esta deve ser um código numérico de 5 digitos, por exemplo: 12345, 54321, 10001, 00002 e assim por diante. O sistema deve começar a contar os códigos de matrícula a partir de 00001.
+O nome e a idade dos alunos são lidos do usuário, enquanto a matrícula e a turma são definidas pelo programa. A primeira é um código numérico de 5 dígitos. Já a última é representada por uma letra maiúscula A, B ou C, definida com base na idade dos alunos.
 
-Além disso, o sistema deve ser capaz de separar os alunos em turmas, representadas por uma letra e determinadas pela idade de cada. Para crianças maiores que 2 anos e menores que 6 anos, atribui-se a turma A; para maiores que 5 anos e menores que 16, a turma B; e, para maiores de 15 anos e menores que 19, a turma C. A turma é uma outra informação que deve contar no cadastro de cada aluno.
+Para determinar a turma, toma-se com base os seguintes interva-los:
 
-A quantidade de alunos que será cadastrada em um dia é desconhecida.
+- Turma A: (2, 6) anos
+- Turma B: (5, 16) anos
+- Turma C: (15, 19) anos
 
-### Sugestões da equipe de desenvolvimento ###
+## Funcionalidades
 
-Adotaremos para esse programa a seguinte estrutura, que representará cada aluno: char *aluno[2]. Isto é, um vetor de ponteiros que conterá 2 ponteiros de caracteres. É necessário que cada Cada ponteiro será uma string e representará um campo de informação dos alunos. Exemplo:
+- [1] Cadastrar alunos
+- [2] Remover alunos
+- [3] Mostrar alunos
+- [4] Sair
 
-- *aluno[2]
-    - char *nome
-    - char *infos
+## Tecnologias utilizadas
 
-A string infos é uma string especial e servirá para armazenar, em um só lugar, todas as demais informações dos alunos. O campo infos de cada aluno deve seguir o seguinte padrão ao ser registrado:
+- C
+- GCC
+- Git
+- Windows api
+- Makefile
 
-    "matricula idade turma"
+## Como compilar
 
-Cada aluno, por sua vez, será armazenado em um vetor. Ou seja, um vetor de vetores de ponteiros. Como a quantidade de alunos não é conhecida, essa estrutura deve ser dinâmica. Representação do vetor de alunos:
+Tendo a tecnologia **make** e estando na pasta geral do projeto **cadastrar-alunos-trabalho**, basta rodar no terminal:
 
-- alunos
-    - *aluno1[2]
-    - *aluno2[2]
-            .
-            .
-            .
-    - *alunoN[2]
+    make app
+
+O programa será compilado e seu executável, juntamente com os arquivos binários .o, estarão na pasta **build**.
+
+## Como rodar
+
+Uma vez tendo compilado com **make file**, basta rodar no terminal:
+
+    build\app (no windows)
+
+## Observações
+
+- Pouca portabilidade
+    O programa foi inicialmente desenvolvido no windows e, para que o app.exe rode com acentuação correta no cmd, foi necessário usar as tecnologias em <windows.h>. Portanto, sua portabilidade fica limitada
+
+- Falta de persistência das informações
+    Como dito anteriormente, o programa não salva nenhum tipo de informação.

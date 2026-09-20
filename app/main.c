@@ -33,7 +33,6 @@ int main()
 
     // Definindo a estrutura dos alunos
     int capacidade = QUANT_INIT_ALUNOS;
-    int cap_antiga = capacidade;
     char ***alunos = NULL;
     
     int Cont_Matricula = 1;
@@ -56,7 +55,7 @@ int main()
     {
         opcao = -1;
         limpar();
-        printf("1 - Cadastrar alunos\n2 - remover alunos\n3 - Mostrar alunos\n4 - Sair\n");
+        printf("1 - Cadastrar alunos\n2 - Remover alunos\n3 - Mostrar alunos\n4 - Sair\n");
         printf("Sua opção: ");
         scanf("%d", &opcao);
         flush_in();
@@ -171,7 +170,6 @@ int main()
                     if(quant_alunos == capacidade)
                     {
                         char ***nova_lista = NULL;
-                        cap_antiga = capacidade;
                         capacidade *= 2; // Aumenta em cinco a quantidade de alunos
 
                         // Tentando Realocar e expandir alunos
@@ -198,7 +196,7 @@ int main()
                     
                     if(quant_alunos <= 0)
                     {
-                        printf("Não é possível remover alunos. Não há nenhum aluno registrado.\n");
+                        printf("Não é possível remover alunos. Não há nenhum aluno cadastrado.\n");
                         printf("Pressione ENTER para voltar ao menu.\n");
                         getchar();
                         break;
@@ -267,7 +265,7 @@ int main()
 
                 if(quant_alunos <= 0)
                 {
-                    printf("Não é possível mostrar alunos. Não há nenhum aluno registrado.\n");
+                    printf("Não é possível mostrar alunos. Não há nenhum aluno cadastrado.\n");
                     printf("Pressione ENTER para voltar ao menu.\n");
                     getchar();
                     break;
