@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
+
 
 #define NOME_TAMANHO 64
 #define INFOS_TAMANHO 20
@@ -25,6 +27,10 @@ void limpar()
 
 int main()
 {
+    // Definindo a codificação do console
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     // Definindo a estrutura dos alunos
     int capacidade = QUANT_INIT_ALUNOS;
     int cap_antiga = capacidade;
@@ -117,6 +123,7 @@ int main()
                     // Atribuindo nome ao aluno
                     strcpy(novo_aluno[0], buffer);
 
+                    Idade = 0;
                     // Lendo idade do aluno
                     printf("Digite a idade do aluno %d: ", quant_alunos + 1);
                     scanf("%d", &Idade);
