@@ -28,6 +28,8 @@ int main()
     int capacidade = QUANT_INIT_ALUNOS;
     int cap_antiga = capacidade;
     char ***alunos = NULL;
+    
+    int Cont_Matricula = 1;
 
     // Alocando memória para a estrutura
     
@@ -40,6 +42,7 @@ int main()
     // Fim alocação
     
     // Menu de seleção de funções
+    // Conta a quantidade de alunos. Será usado como index.
     int quant_alunos = 0;
     int opcao = -1;
     do
@@ -54,12 +57,16 @@ int main()
         switch(opcao)
         {
             case 1: // Cadastrar
-                // Conta a quantidade de alunos. Será usado como index.
+                
                 char buffer[NOME_TAMANHO];
+                
+                int Idade;
+                char Turma, Matricula[6];
 
                 // Pequena leitura dos alunos
                 do
                 {
+                    limpar();
                     // alocando novo aluno
                     char **novo_aluno = malloc(sizeof(char*) * 2);
                     if(novo_aluno == NULL)
@@ -79,18 +86,72 @@ int main()
                     }
                     // Fim alocação
 
-                    printf("Digite o nome do aluno %d: ", quant_alunos + 1);
+                    printf("\nDigite o nome do aluno %d (0 para sair): ", quant_alunos + 1);
                     fgets(buffer, NOME_TAMANHO, stdin);
                     buffer[strcspn(buffer, "\n")] = '\0'; 
 
-                    if(strcmp(buffer, "sair") == 0)
+                    // Verificando flag para sair
+                    if(strcmp(buffer, "0") == 0)
                     {
+                        free(novo_aluno[0]);
+                        free(novo_aluno[1]);
+                        free(novo_aluno);
                         break;
                     }
+
+                    // Validando possível nome
+                        // Se for vazio
+                    if(strlen(buffer) == 0)
+                    {
+                        printf("\nNome inválido. Nada foi digitado.\n");
+                        printf("Pressione ENTER para tentar novamente.\n");
+                        getchar();
+
+                        free(novo_aluno[0]);
+                        free(novo_aluno[1]);
+                        free(novo_aluno);
+                        continue;
+                    }
+
+                    // Atribuindo nome ao aluno
                     strcpy(novo_aluno[0], buffer);
 
-                    printf("Digite as informações do aluno %d: ", quant_alunos + 1);
-                    fgets(novo_aluno[1], INFOS_TAMANHO, stdin);
+                    // Lendo idade do aluno
+                    printf("Digite a idade do aluno %d: ", quant_alunos + 1);
+                    scanf("%d", &Idade);
+                    flush_in();
+                    
+                    // Validando idade
+                    if(Idade < 3 || Idade > 18){
+                        printf("\nIdade fora do intervalo aceito [3, 18]. Cadastro do aluno %d será reiniciado!\n", quant_alunos + 1);
+                        printf("Pressione ENTER para tentar novamente.\n");
+                        getchar();
+
+                        free(novo_aluno[0]);
+                        free(novo_aluno[1]);
+                        free(novo_aluno);
+                        continue;
+                    }
+                    
+                    // Atribuindo turma com base na idade
+                    if(Idade >= 3 && Idade < 6){
+                    Turma = 'A';
+                    }
+                    
+                    if(Idade > 5 && Idade < 16){
+                    Turma = 'B';
+                    }
+                    
+                    if(Idade > 15 && Idade < 19){
+                    Turma = 'C';
+                    }
+                    
+                    sprintf(Matricula, "%05d", Cont_Matricula);
+                    
+                    Cont_Matricula ++;
+                    
+                    sprintf(novo_aluno[1], "%s %d %c", Matricula, Idade, Turma);
+                    
                     novo_aluno[1][strcspn(novo_aluno[1], "\n")] = '\0';
 
                     alunos[quant_alunos] = novo_aluno;
