@@ -1,14 +1,14 @@
 # Cadastrar Aluno
 
-É um programa semi CRUD, que permite a realização de cadastro de alunos, assim como remover estes e mostrá-los.
+É um programa que permite cadastrar alunos, removê-los e mostrá-los.
 
-O programa não conta com persistência de dados. É um software de cadastro meramente ilustrativo onde, ao final do programa, você tem uma estrutura "alunos" preenchida mas que não é salva.
+O programa **não conta com persistência de dados**. É um software de cadastro meramente ilustrativo onde, ao final do programa, você tem uma estrutura "alunos" preenchida mas que não é salva.
 
 O programa possui uma interface de tela de comando, com um menu de seleção para as funções.
 
 ## Sobre o projeto
 
-Para o desenvolvimento desse programa, havia a seguinte condição inicial: usar ao menos cinco funções presentes na biblioteca <string.h>.
+Para o desenvolvimento desse programa, havia a seguinte condição inicial: usar ao menos cinco funções presentes na biblioteca **<string.h>**.
 
 O projeto utilizá funções dessa biblioteca para tentar solucionar o seguinte problema: uma escola precisa fazer um cadastro de um número desconhecido de alunos. Cada aluno deve ter um conjunto de informações: nome, matrícula, idade e turma. Alunos diferentes podem ter o mesmo nome, mas nunca a mesma matrícula.
 
@@ -45,14 +45,18 @@ O programa será compilado e seu executável, juntamente com os arquivos binári
 
 ## Como rodar
 
-Uma vez tendo compilado com **make file**, basta rodar no terminal:
+Uma vez tendo compilado com **make app**, basta rodar no terminal:
 
-    build\app (no windows)
+    build\app
+    
+Ou executar o executável presente nesse mesmo caminho.
 
 ## Observações
 
-- Pouca portabilidade
-    O programa foi inicialmente desenvolvido no windows e, para que o app.exe rode com acentuação correta no cmd, foi necessário usar as tecnologias em <windows.h>. Portanto, sua portabilidade fica limitada
+### Pouca portabilidade
 
-- Falta de persistência das informações
-    Como dito anteriormente, o programa não salva nenhum tipo de informação.
+O programa foi inicialmente desenvolvido no windows e, para que o app.exe rode com acentuação correta no cmd, foi necessário usar as tecnologias em **<windows.h>**. Portanto, sua portabilidade fica limitada
+
+### Falta de persistência das informações
+
+Como dito anteriormente, o programa não salva nenhum tipo de informação.
