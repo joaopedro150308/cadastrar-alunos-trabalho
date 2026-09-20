@@ -4,6 +4,7 @@
 
 #define NOME_TAMANHO 64
 #define INFOS_TAMANHO 20
+#define MATRICULAS_TAMANHO 6
 
 // É a quantidade inicial mínima de alunos.
 #define QUANT_INIT_ALUNOS 2
@@ -251,7 +252,10 @@ int main()
                     
                 break;
     
-            case 3: // Mostrar
+            case 3: 
+            {
+
+                // Mostrar
                 limpar();
 
                 if(quant_alunos <= 0)
@@ -262,17 +266,62 @@ int main()
                     break;
                 }
 
-                // Algoritmo de exibição dos alunos
-                printf("%-4s | %-20s | %s\n\n", "ID", "INFOS", "NOME");
+                // Estruturas que guradarão as informações dos alunos
+                char nomes[quant_alunos][NOME_TAMANHO];
+                char matriculas[quant_alunos][MATRICULAS_TAMANHO];
+                int idades[quant_alunos];
+                char turmas[quant_alunos];
+
+                char infosBuff[INFOS_TAMANHO];
+
+                char *infoPtr = NULL;
+                int info_i = 0; // index da informação
+
+                // Separando cada informação usando strtok
                 for(int i = 0; i < quant_alunos; i++)
                 {
-                    printf("%-4d | %-20s | %s\n", i, alunos[i][1], alunos[i][0]);
+                    // Nomes
+                    strcpy(nomes[i], alunos[i][0]);
+
+                    // Separando infos
+                    strcpy(infosBuff, alunos[i][1]);
+                    info_i = 0;
+                    infoPtr = strtok(infosBuff, " ");
+                    while(infoPtr != NULL)
+                    {
+                        switch(info_i)
+                        {
+                            case 0:
+                                sscanf(infoPtr, "%s", matriculas[i]);
+                                break;
+
+                            case 1:
+                                sscanf(infoPtr, "%d", &idades[i]);
+                                break;
+
+                            case 2:
+                                sscanf(infoPtr, "%c", &turmas[i]);
+                                break;
+                            }
+
+                        infoPtr = strtok(NULL, " ");
+                        info_i++;
+                    }
+                }
+                infoPtr = NULL;
+
+                // Algoritmo de exibição dos alunos
+                printf("%-9s | %-5s | %5s | %s\n\n", "MATRICULA", "IDADE", "TURMA", "NOME");
+                for(int i = 0; i < quant_alunos; i++)
+                {
+                    printf("%-9s | %-5d | %-5c | %s\n", matriculas[i], idades[i], turmas[i], nomes[i]);
                 }
                 printf("\nPressione ENTER para voltar ao menu.\n");
                 getchar();
                 // Fim exibição
 
                 break;
+            }
 
             case 4: // Sair
                 break;
